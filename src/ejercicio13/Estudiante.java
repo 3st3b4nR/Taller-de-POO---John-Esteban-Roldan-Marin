@@ -1,0 +1,47 @@
+package ejercicio13;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Estudiante {
+    private String nombre;
+    private List<Curso> cursos;
+
+    public Estudiante(String nombre) {
+        this.nombre = nombre;
+        this.cursos = new ArrayList<>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<Curso> getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(List<Curso> cursos) {
+        this.cursos = cursos;
+    }
+
+    public void addCurso(Curso curso) {
+        cursos.add(curso);
+        curso.addEstudiante(this);
+    }
+
+    public void addCursoInt(Curso curso){
+        cursos.add(curso);
+    }
+
+    public void printCurso(){
+        System.out.println("-------"+this.nombre+"---------");
+        for (Curso curso : cursos) {
+            System.out.println(curso.getNombre());
+        }
+    }
+
+}
